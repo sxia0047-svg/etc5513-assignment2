@@ -5,7 +5,7 @@ format: html
 
 # Introduction
 
-This is a simple Quarto document for ETC5513 Assignment 2.
+This file was modified on `testbranch` to demonstrate how Git branches can be used to develop changes independently from `main`.
 
 ```{r}
 summary(cars)
