@@ -34,71 +34,115 @@ The screenshot below shows the rendered HTML output generated from `example.qmd`
 
 ![Rendered HTML output](screenshots/step1-rendered-html-output.png)
 
-## 5. Modifying the Main Branch to Create a Merge Conflict
+## 2. Initialising a Git Repository and Pushing to GitHub
 
 ### What I did
 
-After completing the work on `testbranch`, I switched back to the `main` branch using:
+After creating the project files, I used the command line interface in RStudio to initialise the project folder as a Git repository. I first checked the current working directory using `pwd` and listed the project files using `ls` to confirm that I was inside the correct project folder.
 
-`git switch main`
+I then initialised Git using the `git init` command. After initialisation, I used `git status` to inspect the repository state and identify untracked files.
 
-I then checked the available branches using `git branch` and confirmed that the current branch had successfully changed back to `main`.
+Before committing the files, I created a `.gitignore` file to exclude machine-specific and temporary files such as `.DS_Store`, `.Rhistory`, and `.Rproj.user/`. This helps keep the repository clean and improves reproducibility across different computers.
 
-Next, I checked the repository status using `git status` to confirm that the working tree was clean before making further changes.
+Next, I added the project files to the staging area using `git add .` and checked the repository status again with `git status`.
 
-After returning to `main`, I modified the file `example.qmd` by changing the same section that had previously been modified on `testbranch`. However, the text was changed in a different way so that the modifications on `main` would conflict with the version on `testbranch` during a future merge.
+I then created the first commit using the following clear commit message:
 
-I then checked the repository status again using `git status` to confirm that the file had been modified.
+`Add initial Quarto project files`
 
-Next, I staged the modified file using:
+After the local repository was prepared, I created a new repository on GitHub and connected it to the local repository using:
 
-`git add example.qmd`
+`git remote add origin`
 
-After confirming that the file had been staged successfully, I created a new commit using the following commit message:
+Finally, I pushed the local `main` branch to GitHub using:
 
-`Modify example file on main`
-
-Finally, I pushed the updated `main` branch to the remote GitHub repository using:
-
-`git push origin main`
+`git push -u origin main`
 
 ### Why I did this
 
-The purpose of this step was to demonstrate how merge conflicts can occur when two branches modify the same section of the same file in different ways.
+The purpose of these steps was to establish version control for the project and connect the local repository to a remote GitHub repository.
 
-Git branches allow independent development, but conflicts can occur when changes from separate branches cannot be merged automatically. By intentionally modifying the same part of `example.qmd` differently on `main` and `testbranch`, a future merge conflict was intentionally created for demonstration purposes.
+Using Git allows project changes to be tracked through commits, making it possible to manage project history and collaborate more effectively. The `.gitignore` file prevents unnecessary local system files from being tracked.
 
-This workflow also demonstrated the standard Git process for updating a branch:
+The commit process followed the standard Git workflow:
 
--   switch branches
--   modify files
--   stage changes
--   commit changes
--   push changes to GitHub
+-   working directory
+-   staging area
+-   local repository
+-   remote repository
 
-Using a clear commit message also improves repository history and makes project changes easier to understand.
+Using a clear commit message improves the readability of the repository history and makes the workflow easier to understand.
 
 ### Result
 
-The `main` branch was successfully updated locally and on GitHub. The modified version of `example.qmd` was committed and pushed successfully.
+The repository was successfully initialised and committed locally. After pushing to GitHub, the remote repository contained the project files, including:
 
-The repository now contains different versions of the same file on `main` and `testbranch`, which will create a merge conflict during the next merge operation.
+-   `assignment2_guide.qmd`
+-   `example.qmd`
+-   `example.html`
+-   `screenshots/`
 
-### 
+The terminal output also confirmed that the local `main` branch was successfully linked to `origin/main`.
 
-## Evidence
+## 3. Creating and Using a New Git Branch
 
-### Modifying the `main` branch
+### What I did
 
-The screenshot below shows the workflow for:
+I created a new Git branch called `testbranch` using the command:
 
--   switching from `testbranch` back to `main`
--   checking the repository status
+`git switch -c testbranch`
+
+I then checked the available branches using `git branch` to confirm that the current branch had successfully switched from `main` to `testbranch`.
+
+After switching branches, I modified the file `example.qmd` by changing the introductory text. The updated text explained that the file had been modified on `testbranch` to demonstrate independent development using Git branches.
+
+I then checked the repository status using `git status` to confirm that `example.qmd` had been modified.
+
+Next, I added the modified file to the staging area using:
+
+`git add example.qmd`
+
+After checking the repository status again, I created a new commit using the following commit message:
+
+`Modify example file on testbranch`
+
+Finally, I pushed the new branch to the remote GitHub repository using:
+
+`git push -u origin testbranch`
+
+### Why I did this
+
+The purpose of this step was to demonstrate how Git branches can be used to develop changes independently from the `main` branch.
+
+Branches allow multiple versions of a project to exist simultaneously without affecting the main project history. This makes experimentation and collaborative development safer and easier.
+
+The workflow followed the standard Git branching process:
+
+-   create a branch
+-   switch to the branch
+-   modify files
+-   stage changes
+-   commit changes
+-   push the branch to GitHub
+
+Using a separate branch also prepares the repository for future merging and conflict resolution workflows.
+
+### Result
+
+The new branch `testbranch` was successfully created both locally and on GitHub. The modifications to `example.qmd` were committed and pushed successfully.
+
+The terminal output confirmed that the local branch was linked to the remote branch `origin/testbranch`.
+
+### Evidence
+
+### Creating, modifying, and pushing `testbranch`
+
+The screenshot below shows the complete Git branching workflow in the terminal, including:
+
+-   creating and switching to `testbranch`
 -   modifying `example.qmd`
 -   staging the modified file
 -   committing the changes with a clear commit message
--   pushing the updated `main` branch to GitHub
+-   pushing the branch to GitHub
 
-The terminal output also confirms that the updated `main` branch was successfully synchronised with the remote repository.
-
-![Modifying main branch](screenshots/step5-main-conflict-workflow.png)
+![Git branch workflow](screenshots/step3-branch-workflow.png)

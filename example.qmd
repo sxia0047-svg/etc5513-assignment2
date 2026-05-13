@@ -5,7 +5,9 @@ format: html
 
 # Introduction
 
-This file was modified on `main` to intentionally create a future merge conflict with `testbranch`.
+# Introduction
+
+This file was modified on both `main` and `testbranch`. The merge conflict has been resolved by combining the purpose of both changes.
 
 ```{r}
 summary(cars)
