@@ -5,10 +5,15 @@ format: html
 
 # Introduction
 
-# Introduction
-
 This file was modified on both `main` and `testbranch`. The merge conflict has been resolved by combining the purpose of both changes.
 
 ```{r}
 summary(cars)
+```
+# Simple Plot
+
+The following plot uses the built-in `cars` dataset.
+
+```{r}
+plot(cars)
 ```
