@@ -1,0 +1,35 @@
+---
+title: "ETC5513 Assignment 2 Guide"
+format: pdf
+---
+
+# ETC5513 Assignment 2 Guide
+
+## 1. Creating an RStudio Project and Rendering a Quarto File
+
+### What I did
+
+I first created a new RStudio Project called `etc5513-assignment2`. This project folder was used as the working directory for the assignment. Using an RStudio Project helps keep all files for the task in one place, which supports reproducibility and makes it easier to manage files with Git.
+
+Inside this project folder, I created a Quarto file called `example.qmd`. The file contained a title, a short markdown section, and a simple R code chunk using the built-in `cars` dataset with the command `summary(cars)`.
+
+### Why I did this
+
+The purpose of this step was to create a simple reproducible document that could be rendered into an HTML file. Quarto combines markdown text and executable R code, so the output can be regenerated directly from the source file.
+
+I used the built-in `cars` dataset because it is included in base R and does not require additional packages or external data files.
+
+### Result
+
+I rendered `example.qmd` into an HTML file using the Render button in RStudio. After rendering, the project folder contained both:
+
+-   `example.qmd`
+-   `example.html`
+
+This showed that the Quarto document was successfully knitted into an HTML file.
+
+### Evidence
+
+The screenshot below shows the rendered HTML output generated from `example.qmd`.
+
+![Rendered HTML output](screenshots/step1-rendered-html-output.png)
