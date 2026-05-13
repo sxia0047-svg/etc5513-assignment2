@@ -5,7 +5,7 @@ format: html
 
 # Introduction
 
-This is a simple Quarto document for ETC5513 Assignment 2.
+This file was modified on `main` to intentionally create a future merge conflict with `testbranch`.
 
 ```{r}
 summary(cars)
